@@ -24,9 +24,12 @@ module.exports.add = async (req, res) => {
   }
 };
 
-module.exports.get = async (_, res) => {
+module.exports.get = async (req, res) => {
   try {
-    const blogs = await blogModel.find().sort({ createdAt: -1 });
+    let filter = {};
+    if (req.query.tag) filter = { tags: { $in: [req.query.tag] } };
+    const blogs = await blogModel.find(filter).sort({ createdAt: -1 });
+    // console.log(blogs);
     res.status(200).json({
       success: true,
       message: "Fetched Blogs",
