@@ -4,7 +4,17 @@ const blogModel = require("../models/blog.model");
 module.exports.add = async (req, res) => {
   try {
     req.body.slug = req.body.topic;
-    await blogModel.create(req.body);
+    const blog = await blogModel.create(req.body);
+    // const subscriberModel = require("../models/subscriber.model");
+    // const sendEmail = require("../utils/sendEmail");
+    // const subscribers = await subscriberModel.find();
+    // subscribers.forEach((sub) =>
+    //   sendEmail("addBlog", {
+    //     topic: blog.topic,
+    //     slug: blog.slug,
+    //     email: sub.email,
+    //   })
+    // );
     res.status(201).json({
       success: true,
       message: "Posted Successfully",
