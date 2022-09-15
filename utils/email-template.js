@@ -1,13 +1,13 @@
 module.exports.visitor = (message) => {
   return {
-    subject: `Visit Alert - TheHarshvs`,
+    subject: `Visit Alert - Harshvsinghme`,
     body: `Visit Alert Type: ${message}`,
   };
 };
 
 module.exports.event = (message) => {
   return {
-    subject: `Event Alert - TheHarshvs`,
+    subject: `Event Alert - Harshvsinghme`,
     body: `Event Alert Type: ${message}`,
   };
 };
